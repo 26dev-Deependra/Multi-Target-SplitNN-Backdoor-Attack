@@ -96,7 +96,7 @@ if __name__ == '__main__':
     is_binary = False
     need_pad = False
 
-    from cnn_model_multi import Model
+    from model_split import Model
 
     input_size = (3, 32, 32)
     class_num = 10
