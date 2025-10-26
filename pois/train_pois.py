@@ -284,7 +284,7 @@ if __name__ == '__main__':
 
     last_vec_arr = train_model(model, trainloader, label, steal_set, steal_id,
                                epoch_num=N_EPOCH, start_epoch=clean_epoch, is_binary=is_binary, verbose=True)
-    torch.save(model.state_dict(), 'poison_label_%d-%d-%s-%d.model' %
+    torch.save(model.state_dict(), 'artifact/pois/poison_label_%d-%d-%s-%d.model' %
                (args.dup, args.multies, args.unit, args.label))
 
     cleanacc = eval_model(model, testloader, is_binary=is_binary)
@@ -294,7 +294,7 @@ if __name__ == '__main__':
                           label, args.multies, args.unit, other_unit)
     print('target label: %d, attack acc: %.4f' % (label, atkacc))
 
-    np.save('label_%d-%d-%s-%d_vec' %
+    np.save('artifact/pois/label_%d-%d-%s-%d_vec' %
             (args.dup, args.multies, args.unit, args.label), last_vec_arr)
 
     t2 = time.time()

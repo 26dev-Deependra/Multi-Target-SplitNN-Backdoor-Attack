@@ -112,13 +112,13 @@ if __name__ == '__main__':
 
         train_model(model, trainloader, epoch_num=args.clean_epoch,
                     is_binary=is_binary, verbose=True)
-        torch.save(model.state_dict(), 'clean_epoch_%d-%d-%s.model' %
+        torch.save(model.state_dict(), 'artifact/clean/clean_epoch_%d-%d-%s.model' %
                    (args.dup, args.multies, args.unit))
 
         train_model(model, trainloader, epoch_num=N_EPOCH -
                     args.clean_epoch, is_binary=is_binary, verbose=True)
         cleanacc = eval_model(model, testloader, is_binary=is_binary)
-        torch.save(model.state_dict(), 'clean-%d-%d-%s.model' %
+        torch.save(model.state_dict(), 'artifact/clean/clean-%d-%d-%s.model' %
                    (args.dup, args.multies, args.unit))
         print('clean acc: %.4f' % cleanacc)
 
@@ -131,7 +131,7 @@ if __name__ == '__main__':
         train_model(model, trainloader, epoch_num=N_EPOCH,
                     is_binary=is_binary, verbose=True)
         cleanacc = eval_model(model, testloader, is_binary=is_binary)
-        torch.save(model.state_dict(), 'clean%d-%d-%s.model' %
+        torch.save(model.state_dict(), 'artifact/clean/clean%d-%d-%s.model' %
                    (args.dup, args.multies, args.unit))
         print('clean acc: %.4f' % cleanacc)
 

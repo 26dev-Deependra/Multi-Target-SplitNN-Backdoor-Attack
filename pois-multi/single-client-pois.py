@@ -369,7 +369,7 @@ if __name__ == '__main__':
     # save model (same naming idea: include labels in filename)
     labels_str = "_".join([str(l) for l in target_labels])
     torch.save(model.state_dict(
-    ), f'poison_labels_{args.dup}-{args.multies}-{args.unit}-{labels_str}.model')
+    ), f'artifact/pois_multi/poison_labels_{args.dup}-{args.multies}-{args.unit}-{labels_str}.model')
 
     cleanacc = eval_model(model, testloader, is_binary=is_binary)
     print('clean acc: %.4f' % cleanacc)
@@ -386,7 +386,7 @@ if __name__ == '__main__':
             continue
         # vec is a cuda tensor (C,H,W). move to cpu numpy
         np.save(
-            f'label_{args.dup}-{args.multies}-{args.unit}-{t}_vec.npy', vec.cpu().numpy())
+            f'artifact/pois_multi/label_{args.dup}-{args.multies}-{args.unit}-{t}_vec.npy', vec.cpu().numpy())
 
     t2 = time.time()
     print("Training a model costs %.4fs." % (t2-t1))

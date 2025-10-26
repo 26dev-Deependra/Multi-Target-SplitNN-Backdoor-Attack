@@ -19,5 +19,3 @@ This repo consisit of three main executables:
    ```python
    python eval.py --multies 4 --unit 0.25
    ```
-
-i am going to provide a code base on paper titled as Backdoor-Attack-Against-Split-Neural-Network-Based-Vertical-Federated-Learning in python following code consist of seven files .py files i want the code to be extended for multi-label attack
